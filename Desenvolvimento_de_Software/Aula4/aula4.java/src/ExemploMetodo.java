@@ -7,11 +7,11 @@ public class ExemploMetodo {
         System.out.println("Multiplicação: " + resultadoMultiplicacao);
     }
 
-    //Função para somar dois números inteiros
+    //Função(Método) para somar dois números inteiros
     public static int somar(int a, int b){
         return a + b;
     }
-
+    
     //Função para multiplicar dois números
     public static double multiplicar(double a, double b){
         return a * b;
