@@ -21,5 +21,23 @@ public class ExemploLista {
         for (String nome : nomes){
             System.out.println(nome);
         }
+
+        //removendo um elemento
+        nomes.remove("Carlos");
+
+        //exibindo a lista após da remoção
+        System.out.println("\nLista de nomes após a remoção: ");
+        for (String nome : nomes){
+            System.out.println(nome);
+        }
+
+        //verificando se um nome está na lista
+
+        if (nomes.contains("Diana")){
+            System.out.println("\nDiana está na Lista!");
+        }
+
+        //obtendo o tamanho da lista
+        System.out.println("\nTamanho da Lista: " + nomes.size());
     }
 }
