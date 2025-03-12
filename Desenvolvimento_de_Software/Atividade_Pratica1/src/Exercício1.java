@@ -10,14 +10,18 @@ public class Exercício1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //cria a lista chamada nums
         List<Integer> nums = new ArrayList<>();
 
+        //pega o imput do usuário e coloca eles dentro da lista
         for (int i = 0; i <= 4; i++){
             System.out.print("Digite o " + (i + 1) + "° número: ");
             int num = scanner.nextInt();
             nums.add(num);
         }
         int soma = 0;
+
+        //soma todos os elementos da lista
         for (int num : nums){
             soma += num;
         }
