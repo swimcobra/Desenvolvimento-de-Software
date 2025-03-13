@@ -10,7 +10,7 @@ public class Exercicio2 {
 
         int numPar = 0;
 
-        //pede o imput do usuário e se a sobra da divisão for zero adiciona ele a variável numPar
+        //pede o input do usuário e se a sobra da divisão for zero adiciona ele a variável numPar
         for (int i = 0; i <= 9; i++){
             System.out.print("Digite o " + (i + 1) + "° número: ");
             int num = scanner.nextInt();

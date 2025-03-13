@@ -13,7 +13,7 @@ public class Exercicio3 {
 
         List<Integer> nums = new ArrayList<>();
 
-        //recebe os imputs do usuário e coloca eles em uma lista
+        //recebe os inputs do usuário e coloca eles em uma lista
         for (int i = 0; i <= 9; i++){
             System.out.print("Digite o " + (i + 1) + "° número: ");
             int num = scanner.nextInt();
