@@ -6,7 +6,7 @@ import java.util.Scanner;
 //import java.util.List;
 //import java.util.ArrayList;
 
-public class Exercício1 {
+public class Exercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
