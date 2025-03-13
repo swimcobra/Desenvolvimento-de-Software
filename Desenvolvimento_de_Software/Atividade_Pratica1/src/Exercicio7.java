@@ -15,17 +15,18 @@ public class Exercicio7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //requisita o valor desejado para o saque
         System.out.print("Informe o valor a ser sacado: ");
         int valor = scanner.nextInt();
 
         int cedulas[] = {100, 50, 20, 10, 5, 2, 1};
-
         int quant = 0;
 
         for(int i = 0; i < 7; i++){
-            quant = valor / cedulas[i];
-            System.out.println("Cédulas de " + cedulas[i] + ": " + quant);
-            valor = valor % cedulas[i];
+            quant = valor / cedulas[i]; //atribui a quantidade de cédulas de um determinado valor(localizado com indice do vetor) a váriavel quant
+            System.out.println("Cédulas de " + cedulas[i] + ": " + quant); //mostra a quantidade de cédulas do valor necessárias para o saque
+            valor = valor % cedulas[i]; //atualiza o valor que ainda necessita de cédulas
+            //se o valor restante for zero, para a execução do loop
             if(valor == 0){
                 break;
             }
@@ -33,5 +34,6 @@ public class Exercicio7 {
                 continue;
             }
         }
+        scanner.close();
     }
 }
