@@ -53,5 +53,6 @@ public class Exercicio10 {
             System.out.println("Algo de errado aconteceu");
         }
         
+        scanner.close();
     }
 }
