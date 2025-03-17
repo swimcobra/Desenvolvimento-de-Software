@@ -1,6 +1,6 @@
 /*Criar uma classe Produto que tenha nome, preço e quantidade. O programa deve permitir que o usuário cadastre um produto e exiba as informações na tela.
-Exemplo de Entrada:
 
+Exemplo de Entrada:
 Digite o nome do produto: Teclado Mecânico
 Digite o preço do produto: 299.99
 Digite a quantidade em estoque: 10
