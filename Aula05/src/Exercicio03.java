@@ -29,26 +29,53 @@ class Carro{
     int velocidade = 0;
 
     void ligar(){
-        ligado = true;
-        System.out.println("O carro foi ligado!");
+        if(ligado == false){
+            ligado = true;
+            System.out.println("O carro foi ligado!");
+        }
+        else{
+            System.out.println("O carro já está ligado");
+        }
     }
 
     void desligar(){
-        if(velocidade == 0){
-            ligado = false;
-            System.out.println("O carro foi desligado!");
+        if(ligado == true){
+            if(velocidade == 0){
+                ligado = false;
+                System.out.println("O carro foi desligado!");
+            }
+            else{
+                System.out.println("O carro ainda está em movimento!");
+            }
         }
-
+        else{
+            System.out.println("O carro já está desligado!");
+        }
     }
 
     void acelerar(){
-        velocidade += 20;
-        System.out.println("Acelerando... Velocidade atual: " + velocidade + " km/h");
+        if(ligado == true){
+            if(velocidade < 220){
+                velocidade += 20;
+                System.out.println("Acelerando... Velocidade atual: " + velocidade + " km/h");
+            }
+            else{
+                System.out.println("O carro está no limite!");
+            }
+        }
+        else{
+            System.out.println("O carro está desligado!");
+        }
     }
 
     void desacelerar(){
-        velocidade -= 20;
-        System.out.println("Desacelerando... Velocidade atual: " + velocidade + " km/h");
+        if(velocidade > 0){
+            velocidade -= 20;
+            System.out.println("Desacelerando... Velocidade atual: " + velocidade + " km/h");
+        }
+        else{
+            System.out.println("O carro já está parado!");
+        }
     }
 }
 
@@ -66,42 +93,34 @@ public class Exercicio03 {
         System.out.println("3. Digite A para acelerar");
         System.out.println("4. Digite R para desacelerar");
         System.out.println("5. Digite E para encerrar o programa");
+        System.out.println("Modelo do carro: " + carro.modelo);
 
-        String comandos = "Z";
+        String comandos = "";
 
-        while(!comandos.equals("E")){
+        do{
             System.out.print("O que deseja fazer?");
-            comandos = scanner.next();
-
-            comandos.toUpperCase();
+            comandos = scanner.next().toUpperCase();
+            scanner.nextLine();
             
             switch (comandos) {
                 case "L":
                     carro.ligar();
-                    System.out.print("Comando: ");
-                    comandos = scanner.next();
                     break;
                 case "D":
                     carro.desligar();
-                    System.out.print("Comando: ");
-                    comandos = scanner.next();
                     break;
                 case "A":
                     carro.acelerar();
-                    System.out.print("Comando: ");
-                    comandos = scanner.next();
                     break;
                 case "R":
                     carro.desacelerar();
-                    System.out.print("Comando: ");
-                    comandos = scanner.next();
                     break;
                 default:
                     System.out.print("Digite um comando válido: ");
-                    comandos = scanner.next();
                     break;
             }
-        }
+        } while(!comandos.equals("E"));
+
         scanner.close();
     }
 }
