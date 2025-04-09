@@ -175,7 +175,7 @@ Adicionar verificação de lotação máxima.
         int escolha = 0;
 
         do{
-            System.out.print("Digite 1 para cadastrar um ônibus e 2 para cadastrar um mêtro: ");
+            System.out.print("Digite 1 para cadastrar um ônibus e 2 para cadastrar um metrô: ");
             escolha = scanner.nextInt();
             if(escolha != 1 && escolha != 2){
                 System.out.print("Número fora dos parâmetros, favor digitar corretamente.");
