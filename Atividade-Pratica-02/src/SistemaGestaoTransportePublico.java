@@ -7,6 +7,7 @@ abstract class Veiculo{
     int ano;
     boolean portas = false;
     int capacidadePassageiros;
+    int quantidadePassageiros;
 
     public abstract void exibirDados();
     
@@ -25,6 +26,40 @@ abstract class Veiculo{
             portas = false;
         } else{
             System.out.println("As portas já se encontram fechadas!");
+        }
+    }
+
+    public void embarcarPassageiros(int quantidade){
+        if(portas){
+            if(quantidade + quantidadePassageiros <= capacidadePassageiros){
+                System.out.println(quantidade + " passageiros embarcados.");
+                quantidadePassageiros += quantidade;
+            } else{
+                int quantTemp = capacidadePassageiros - quantidade;
+                quantTemp *= -1;
+                System.out.println("Lotação máxima! Apenas " + ((quantidade - quantTemp) - quantidadePassageiros)  + " passageiros conseguiram embarcar.");
+                quantidadePassageiros = (quantidade - quantTemp);
+            }
+        } else{
+            System.out.println("AVISO: Portas fechadas! É necessário que estejam abertas para o embarque de passageiros!");
+        }
+    }
+
+    public void desembarcarPassageiros(int quantidade){
+        if(portas){
+            if(quantidadePassageiros > 1){
+                if(quantidade <= quantidadePassageiros){
+                System.out.println("Desembarcando " + quantidade + " passageiros.");
+                quantidadePassageiros -= quantidade;
+                } else{
+                    System.out.println("O veículo não possui essa quantidade de passageiros nas suas dependências. Desembarcando todos os passageiros de suas dependências.");
+                    quantidadePassageiros = 0;
+                }
+            } else{
+                System.out.println("O veiculo está vazio.");
+            }
+        } else{
+            System.out.println("AVISO: Portas fechadas! É necessário que estejam abertas para o desembarque de passageiros!");
         }
     }
 }
@@ -69,10 +104,58 @@ class Metro extends Veiculo{
         this.ano = ano;
         this.numeroVagoes = numeroVagoes;
         this.temArCondicionado = temArCondicionado;
+        this.capacidadePassageiros = numeroVagoes * 50;
     }
 
     @Override
     public void exibirDados(){
-        System.out.println("=== Metro " + id + " ===\nMarca: " + marca + "\nAno: " + ano + "\nNumero de Vagões: " + numeroVagoes + "\nCapacidade de Passageiros: " + capacidadePassageiros + "\nAr Condicionado: " + temArCondicionado);
+        System.out.println("=== Metro " + id + " ===\nMarca: " + marca + "\nAno: " + ano + "\nNumero de Vagões: " + numeroVagoes + "\nCapacidade de Passageiros: " + capacidadePassageiros);
+        if(temArCondicionado){
+            System.out.println("Ar Condicionado: Sim");
+        } else{
+            System.out.println("Ar Condicionado: Não");
+        }
+    }
+}
+
+class Garagem{
+    ArrayList<Veiculo> veiculos = new ArrayList<>();
+
+    public void adicionarVeiculo(Veiculo veiculo){
+        veiculos.add(veiculo);
+    }
+
+    public void listaTodos(){
+        System.out.println(veiculos);
+    }
+
+    public void listarPorTipo(){
+        System.out.println("=== Ônibus ===");
+        for(Veiculo veiculo : veiculos){
+            if(veiculo instanceof Onibus){
+                System.out.println(veiculo);
+            }
+        }
+        System.out.println("=== Metrôs ===");
+        for(Veiculo veiculo : veiculos){
+            if(veiculo instanceof Metro){
+                System.out.println(veiculo);
+            }
+        }
+    }
+    
+    public void contarVeiculos(){
+        int numOnibus = 0;
+        int numMetro = 0;
+
+        for (Veiculo veiculo : veiculos) {
+            if(veiculo instanceof Onibus){
+                numOnibus++;
+            } else{
+                numMetro++;
+            }
+        }
+        
+        System.out.println("Quantidade de Ônibus: " + numOnibus + "\nQuantidade de Metrôs: " + numMetro);
     }
 }
