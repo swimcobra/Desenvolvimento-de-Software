@@ -159,3 +159,41 @@ class Garagem{
         System.out.println("Quantidade de Ônibus: " + numOnibus + "\nQuantidade de Metrôs: " + numMetro);
     }
 }
+
+public class SistemaTransporteApp{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int comando = 0;
+        int idOnibus = 0;
+        int idMetro = 0;
+
+        do{
+            System.out.println("=== INSTRUÇÕES ===\n\n1. Cadastrar Ônibus\n2. Cadastrar Metrô\n3. Listar todos os Veículos\n 4. Listar Veículos por Tipo\n5. Executar Ação Específica(Abrir portas, embarcar passageiros, etc.)\n6. Mostrar Veículos por Tipo\n7. Sair");
+            System.out.print("Digite a opção desejada: ");
+            comando = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (comando) {
+                case 1:
+                    idOnibus++;
+                    System.out.println("=== CADASTRO ===");
+                    System.out.print("Digite a Marca: ");
+                    String novaMarca = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.print("Digite o ano: ");
+                    int novoAno = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Digite o tipo de ônibus(0. ): ");
+                    new Onibus(idOnibus, novaMarca, novoAno, idOnibus);
+                    break;
+            
+                default:
+                    break;
+            }
+        } while(comando != 7);
+
+        System.out.println("Programa Encerrado!");
+
+        scanner.close();
+    }
+}
