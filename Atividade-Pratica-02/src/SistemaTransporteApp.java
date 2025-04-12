@@ -47,7 +47,7 @@ abstract class Veiculo{
 
     public void desembarcarPassageiros(int quantidade){
         if(portas){
-            if(quantidadePassageiros > 1){
+            if(quantidadePassageiros > 0){
                 if(quantidade <= quantidadePassageiros){
                 System.out.println("Desembarcando " + quantidade + " passageiros.");
                 quantidadePassageiros -= quantidade;
@@ -90,7 +90,7 @@ class Onibus extends Veiculo{
 
     @Override
     public void exibirDados(){
-       System.out.println("=== Onibus " + id + " ===\nMarca: " + marca + "\nAno: " + ano + "\nTipo Onibus: " + tipoOnibus + "\nCapacidade de Passageiros: " +capacidadePassageiros);
+       System.out.println("Onibus de ID " + id + "\nMarca: " + marca + "\nAno: " + ano + "\nTipo Onibus: " + tipos[tipoOnibus] + "\nCapacidade de Passageiros: " +capacidadePassageiros);
     }
 }
 
@@ -109,7 +109,7 @@ class Metro extends Veiculo{
 
     @Override
     public void exibirDados(){
-        System.out.println("=== Metro " + id + " ===\nMarca: " + marca + "\nAno: " + ano + "\nNumero de Vagões: " + numeroVagoes + "\nCapacidade de Passageiros: " + capacidadePassageiros);
+        System.out.println("Metrô de ID " + id + "\nMarca: " + marca + "\nAno: " + ano + "\nNumero de Vagões: " + numeroVagoes + "\nCapacidade de Passageiros: " + capacidadePassageiros);
         if(temArCondicionado){
             System.out.println("Ar Condicionado: Sim");
         } else{
@@ -126,20 +126,23 @@ class Garagem{
     }
 
     public void listarTodos(){
-        System.out.println(veiculos);
+        for (Veiculo v : veiculos) {
+           v.exibirDados();
+           System.out.println();
+        }
     }
 
     public void listarPorTipo(){
         System.out.println("=== Ônibus ===");
-        for(Veiculo veiculo : veiculos){
-            if(veiculo instanceof Onibus){
-                System.out.println(veiculo);
+        for(Veiculo v : veiculos){
+            if(v instanceof Onibus){
+                v.exibirDados();
             }
         }
         System.out.println("=== Metrôs ===");
-        for(Veiculo veiculo : veiculos){
-            if(veiculo instanceof Metro){
-                System.out.println(veiculo);
+        for(Veiculo v : veiculos){
+            if(v instanceof Metro){
+                v.exibirDados();
             }
         }
     }
@@ -179,7 +182,7 @@ public class SistemaTransporteApp{
         Garagem garagem = new Garagem();
 
         do{
-            System.out.println("=== INSTRUÇÕES ===\n\n1. Cadastrar Ônibus\n2. Cadastrar Metrô\n3. Listar todos os Veículos\n 4. Listar Veículos por Tipo\n5. Executar Ação Específica(Abrir portas, embarcar passageiros, etc.)\n6. Mostrar Veículos por Tipo\n7. Sair");
+            System.out.println("=== INSTRUÇÕES ===\n\n1. Cadastrar Ônibus\n2. Cadastrar Metrô\n3. Listar todos os Veículos\n4. Listar Veículos por Tipo\n5. Executar Ação Específica(Abrir portas, embarcar passageiros, etc.)\n6. Mostrar Total de Veículos por Tipo\n7. Sair");
             System.out.print("Digite a opção desejada: ");
             comando = scanner.nextInt();
             scanner.nextLine();
@@ -190,21 +193,23 @@ public class SistemaTransporteApp{
                     System.out.println("=== CADASTRO ===");
                     System.out.print("Digite a Marca: ");
                     novaMarca = scanner.nextLine();
-                    scanner.nextLine();
                     System.out.print("Digite o ano: ");
                     novoAno = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.print("Digite o tipo de ônibus(0. Micro-Ônibus/2. Convencional/3. Articulado): ");
+                    System.out.print("Digite o tipo de ônibus(0. Micro-Ônibus/1. Convencional/2. Articulado): ");
                     int novoTipo = scanner.nextInt();
-                    garagem.veiculos.add(new Onibus(novoId, novaMarca, novoAno, novoTipo));
-                    System.out.println("Ônibus de ID " + novoId + " cadastrado com sucesso!");
+                    if(novoTipo >= 0 && novoTipo <= 2){
+                        garagem.veiculos.add(new Onibus(novoId, novaMarca, novoAno, novoTipo));
+                        System.out.println("Ônibus de ID " + novoId + " cadastrado com sucesso!");   
+                    } else{
+                        System.out.println("Tipo de Ônibus Inválido. Retornando ao Menu!");
+                    }
                     break;
                 case 2:
                     novoId++;
                     System.out.println("=== CADASTRO ===");
                     System.out.print("Digite a marca: ");
                     novaMarca = scanner.nextLine();
-                    scanner.nextLine();
                     System.out.print("Digite o ano: ");
                     novoAno = scanner.nextInt();
                     scanner.nextLine();
@@ -226,20 +231,51 @@ public class SistemaTransporteApp{
                     System.out.println("=== ESCOLHA DE VEÍCULO ===");
                     System.out.print("Digite o ID do veículo desejado: ");
                     int idTemp = scanner.nextInt();
-                    Veiculo veiculoSelecionado = garagem.buscarPorId(idTemp);
-                    System.out.println("Veículo de ID " + idTemp + " selecionado");
-                    System.out.println("=== INSTRUÇÕES ===\n\n1. Abrir Portas\n2. Fechar Portas\n3. Embarcar Passageiros\n4. Desembarcar Passageiros\n5. Exibir Dados\n6. Retornar ao Menu Principal");
-                    System.out.print("Digite o que deseja fazer: ");
-                    int comandoEsp = scanner.nextInt();
                     scanner.nextLine();
-                    switch (comandoEsp) {
-                        case 1:
-                            
-                            break;
-                    
-                        default:
-                            break;
+                    Veiculo veiculoSelecionado = garagem.buscarPorId(idTemp);
+                    if(veiculoSelecionado != null){
+                        System.out.println("Veículo de ID " + idTemp + " selecionado");
+                        int comandoEsp;
+                        int novaQuant;
+                        do{
+                            System.out.println("=== INSTRUÇÕES ===\n\n1. Abrir Portas\n2. Fechar Portas\n3. Embarcar Passageiros\n4. Desembarcar Passageiros\n5. Exibir Dados\n6. Retornar ao Menu Principal");
+                            System.out.print("Digite o que deseja fazer: ");
+                            comandoEsp = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (comandoEsp) {
+                                case 1:
+                                    veiculoSelecionado.abrirPortas();
+                                    break;
+                                case 2:
+                                    veiculoSelecionado.fecharPortas();
+                                    break;
+                                case 3:
+                                    System.out.print("Digite a quantidade de passageiros a embarcar: ");
+                                    novaQuant = scanner.nextInt();
+                                    scanner.nextLine();
+                                    veiculoSelecionado.embarcarPassageiros(novaQuant);
+                                    break;
+                                case 4:
+                                    System.out.print("Digite a quantidade de passageiros a desembarcar: ");
+                                    novaQuant = scanner.nextInt();
+                                    scanner.nextLine();
+                                    veiculoSelecionado.desembarcarPassageiros(novaQuant);
+                                    break;
+                                case 5:
+                                    veiculoSelecionado.exibirDados();
+                                    break;
+                                case 6:
+                                    System.out.println("Voltando ao Menu Principal...\n...\n...");
+                                    break;
+                                default:
+                                    System.out.println("ATENÇÃO: COMANDO INVÁLIDO");
+                                    break;
+                            }
+                        } while(comandoEsp != 6);
+                    } else{
+                        System.out.println("Veículo de ID " + idTemp + " não encontrado");
                     }
+                    break;
                 case 6:
                     garagem.contarVeiculos();
                     break;
