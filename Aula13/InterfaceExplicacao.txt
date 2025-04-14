@@ -1,0 +1,14 @@
+INTERFACE
+
+Uma interface em Java funciona como um acordo entre a linguagem e a classe que a implementa. É como assinar um "contrato".
+
+Por exemplo: Se você assina um contrato com alguém, você assume um compromisso com essa pessoa. Em Java, funciona da seguinte forma:
+Se você assinar esse contrato, então você promete implementar todos os métodos que ele define.
+
+Imagine uma tomada (interface) que tem dois pinos.
+Para funcionar, qualquer aparelho precisa ter dois pinos também.
+-A tomada é a interface;
+-A geladeira e o ventilador são classes;
+-Se ambos tiverem os dois pinos corretos, podem se conectar e funcionar.
+
+Resumindo: Uma interface é como um contrato que obriga a classe a implementar certos comportamentos.  Sem isso, o código não compila.
