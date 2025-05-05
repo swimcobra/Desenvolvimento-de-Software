@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Atividade-Pratica-01/Atividade-Pratica-01.iml" filepath="$PROJECT_DIR$/Atividade-Pratica-01/Atividade-Pratica-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Atividade-Pratica-02/Atividade-Pratica-02.iml" filepath="$PROJECT_DIR$/Atividade-Pratica-02/Atividade-Pratica-02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula04/Aula04.iml" filepath="$PROJECT_DIR$/Aula04/Aula04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula05/Aula05.iml" filepath="$PROJECT_DIR$/Aula05/Aula05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula06/Aula06.iml" filepath="$PROJECT_DIR$/Aula06/Aula06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula07/Aula07.iml" filepath="$PROJECT_DIR$/Aula07/Aula07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula09/Aula09.iml" filepath="$PROJECT_DIR$/Aula09/Aula09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula10/Aula10.iml" filepath="$PROJECT_DIR$/Aula10/Aula10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula11/Aula11.iml" filepath="$PROJECT_DIR$/Aula11/Aula11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula13/Aula13.iml" filepath="$PROJECT_DIR$/Aula13/Aula13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula14/Aula14.iml" filepath="$PROJECT_DIR$/Aula14/Aula14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula15/Aula15.iml" filepath="$PROJECT_DIR$/Aula15/Aula15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aula16/Aula16.iml" filepath="$PROJECT_DIR$/Aula16/Aula16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desenvolvimento-de-Software.iml" filepath="$PROJECT_DIR$/Desenvolvimento-de-Software.iml" />
+    </modules>
+  </component>
+</project>

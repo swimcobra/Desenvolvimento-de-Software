@@ -1,0 +1,26 @@
+O que é padrão MVC?
+MVC divide sua aplicação em três camadas principais:
+
+Camada      Responsabilidade
+Model       Representa os dados e regras de negócio
+View        Interface com o usuário (entrada e saída de dados)
+Controller  Faz a mediação entre Model e View
+
+Model   ->  contém as classes que representam os dados e a lógica de negócio
+            (ex.: Pessoa, Produto, Conta).
+
+View    ->  contém as classes responsáveis por exibir informações para o usuário
+            (ex.: mensagens no console GUI).
+
+Controller  ->  contém as classes que fazem a ponte entre o modelo e a vizualização.
+
+Benefícios do MVC
+- Separação de responsabilidades
+- Facilidade de manutenção e testes
+- Código mais limpo e reutilizável
+
+Para poder trabaçhar com o Padrão MVC, precisamos criar os chamados Packages.
+O que é um pacote? Um pacote em Java é uma pasta onde agrupamos classes relacionadas logicamente. Ele serve para:
+- Organizar o código
+- Evitar conflitos de nomes e classes
+- Controlar visibilidade (por exemplo, com o modificador default)
