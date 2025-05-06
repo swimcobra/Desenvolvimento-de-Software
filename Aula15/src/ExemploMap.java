@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ExemploMap {
     public static void main(String[] args) {
-        // Criando um Map onde a vhace é string (nome) e o valor é interger (idade)
+        // Criando um Map onde a chave é a String nome e o valor é o int idade
         HashMap<String, Integer> pessoas = new HashMap<>();
 
         // Adicionando Elementos
