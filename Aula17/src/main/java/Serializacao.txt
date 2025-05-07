@@ -1,0 +1,37 @@
+- O que é Serialização?
+Serialização é o processo de transformar um objeto em uma sequência de bytes, para que ele possa ser:
+    - Salvo em um arquivo.
+    - Enviado pela rede.
+    - Armazenado de forma persistente.
+
+- O que é Desserialização:
+Desserialização é o processo inverso: reconstruir um objeto a partir de uma sequência de bytes previamente serializada.
+
+- Explicações adicionais
+        Comando                             Explicação
+ObjectOutputStream                  Serve para salvar objetos em arquivos binários
+ObjectInputStream                   Serve para ler objetos salvos
+writeObject(obj)                    Salva o objeto no arquivo
+readObject                          Recupera o objeto do arquivo
+implements Serializable             Torna a classe serializável
+
+Obs.: É possível serializar qualquer objeto desde que ele implemente a interface Serializable.
+
+Exemplo: Vamos criar uma classe Pessoa, serializá-la para um arquivo e depois recuperá-la (desserializar).
+
+
+- Formato .dat (binário, usado com ObjectOutputStream)
+    - Vantagens: Guarda o objeto completo com estrutura, útil para persistência interna.
+    - Desvantagens: Não é legível por uma pessoa, difícil de compartilhar com outras aplicações.
+
+
+- Formato .txt (texto puro)
+    - Armazena os dados manualmente formatados em texto.
+    - É kegível e editável.
+    - Precisa escrever e ler manualmente os atributos, não guarda a estrutura do objeto.
+
+
+- Formato .json (padrão de dados estruturado)
+    - Guarda os dados de forma estruturada e legível.
+    - Muito usado em integrações com APIs, banco de dados, etc.
+    - Requer bibliotecas externas com Gson ou Jackson para facilitar.
