@@ -1,32 +1,42 @@
-import java.util.HashSet;
-import java.util.Set;
-
 public class Livro implements Emprestavel{
-    Set<String> isbn = new HashSet<String>();
+    String isbn;
     String titulo;
     String autor;
-    Boolean disponivel;
+    Boolean disponibilidade = true;
 
-    public Livro(String titulo, String autor, String isbn, Boolean disponivel){
+    public Livro(String titulo, String autor, String isbn){
         this.titulo = titulo;
         this.autor = autor;
-        this.disponivel = disponivel;
-        this.isbn.add(isbn);
+        this.isbn = isbn;
     }
 
     @Override
-    public void emprestar() {
-        if(disponivel){
-            System.out.println("Livro emprestado!");
-            disponivel = false;
-        } else {
-            System.out.println("Livro não disponível");
-        }
+    public void emprestar() throws ExceptionLivroIndisponivel {
+            if(!disponibilidade) {
+                throw new ExceptionLivroIndisponivel();
+            }
+        disponibilidade = false;
     }
 
     @Override
     public void devolver() {
         System.out.println("Livro devolvido!");
-        disponivel = true;
+        disponibilidade = true;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public boolean getDisponibilidade() {
+        return disponibilidade;
     }
 }
